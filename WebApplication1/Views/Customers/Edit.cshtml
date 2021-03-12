@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<h4>One Last Step...</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <img style="height:300px; width: 400px; border-radius: 5%;" src="https://i.pinimg.com/originals/cf/e2/03/cfe203dde9e9f1b3075f6da834abb8c3.jpg"/>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input type="text" asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreditCard" for="ccn">Credit Card Number</label>
+                <input asp-for="CreditCard" type="tel" id="ccn" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+                <span asp-validation-for="CreditCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ccn">Security Number</label>
+                <input type="tel" id="ccn" inputmode="numeric" maxlength="3" placeholder="xxx">
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-secondary" />
+            </div>
+            <div class="form-group">
+                <input asp-action="Create" asp-controller="Payments" type="submit" value="Continue to 3D Secure" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>

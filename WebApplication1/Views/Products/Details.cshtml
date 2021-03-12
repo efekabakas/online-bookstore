@@ -1,0 +1,157 @@
+﻿@model WebApplication1.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    .page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        vertical-align: middle;
+    }
+
+    img {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        vertical-align: middle;
+    }
+</style>
+
+<main role="main">
+    <div class="row">
+
+
+        <div class="col-md-4">
+
+            <div class="row page" id="page">
+
+                <img src="https://i.pinimg.com/originals/79/ff/ea/79ffeaeb98cc26e5718837b4e4944e4f.jpg" alt="BookSample" />
+
+
+
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="row">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Title)
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Pages)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Pages)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Isbn)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Isbn)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Date)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Date)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ProductType)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ProductType)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Stock)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Stock)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Language)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Language)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Genre)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Rating)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Rating)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Author)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Author.AuthorName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Publisher)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Publisher.PublisherName)
+                    </dd>
+
+                </dl>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1" style="float:right">
+                    <form asp-action="Rating" style="float : right">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" style="float : right"></div>
+                        <div class="form-group" style="float : right">
+                            <label asp-for="Rating" class="control-label" style="float : right"><b>Rating</b></label>
+                            <input asp-for="Rating" class="form-control" style="float : right" type="number" min="0" max="5" />
+                            <span asp-validation-for="Rating" class="text-danger" style="float : right"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-action="Rating" asp-controller="Products" asp-route-id="@Model.ProductId" type="submit" value="Rating" class="btn btn-primary" />
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</main>
+
+
+
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

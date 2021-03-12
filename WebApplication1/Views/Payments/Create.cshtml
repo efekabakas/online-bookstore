@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.Payment
+
+@{
+    ViewData["Title"] = "Create";
+    
+}
+
+<h4>Payment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <h5>@Model.Amount₺</h5>
+                <p>We've sent you a text message to your registered mobile number...</p>
+                <hr />
+                <p>Confirmation Code</p>
+                <input type="text" pattern="\d*" maxlength="6" minlength ="6" class="form-control" />
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-action="Create" asp-controller="OrderTables" type="submit" value="Confirm Payment" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Navigate" asp-controller="OderTables">Cancel</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

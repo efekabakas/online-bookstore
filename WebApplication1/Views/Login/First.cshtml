@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebApplication1.Models.Login>
+@{
+    ViewData["Title"] = "First";
+}
+
+<h4>SignUp or SignIn</h4>
+<hr />
+
+<html>
+<body>
+    <button type="button" onclick="location.href='@Url.Action("Create", "Login")'">SignUp</button>
+    <button type="button" onclick="location.href='@Url.Action("Check", "Login")'">Login</button>
+</body>
+</html>

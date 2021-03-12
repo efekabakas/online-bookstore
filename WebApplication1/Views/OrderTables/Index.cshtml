@@ -1,0 +1,18 @@
+﻿@model WebApplication1.Models.OrderTable
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row py-5 p-4 bg-white rounded shadow-sm">
+    <div class="col-lg-6">
+        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+        <div class="p-4">
+            <ul class="list-unstyled mb-4">
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Date</strong><strong>@Model.OrderDate</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total Price</strong><strong>₺@Model.TotalPrice</strong></li>
+                <a asp-action="Index" asp-controller="OrderLines" asp-route-id="@Model.OrderId" style="font-weight : bold;float: right">Order Details</a>
+            </ul>
+        </div>
+    </div>
+</div>
